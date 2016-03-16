@@ -45,7 +45,7 @@ class assembler {
 				else
 					ofs<<parse_c_instruction(line, line_counter)<<endl;
 			}
-		}
+		} 
 		///* Helper Functions for First Pass *///
 
 		void find_parentheses_symbols(string filename) {
