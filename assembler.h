@@ -214,7 +214,7 @@ class assembler {
 			return dest;
 		}
 	
-		string get_jump (string jump, size_t semi, int line_counter) {				///computes 3-bit "jump" number
+		string get_jump (string jump, size_t semi, int line_counter) {
 			jump = jump.substr(semi+1);												///jump is part after semi-colon
 			jump.erase(remove(jump.begin(),jump.end(),' '),jump.end());
 			if (jump == "")
