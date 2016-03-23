@@ -4,14 +4,14 @@ WARN = -Wall -Werror
 DEPS = -MMD -MF $*.d
 INCL =
 
-OBJS = assembler.o
+OBJS = assembler.exe
 
 default: $(OBJS)
 
 clean:
 	rm -rf Dependencies $(OBJS)
 
-%.o: %.cpp
+%.exe: %.cpp
 	$(CXX) $(OPTS) $(WARN) $(DEPS) $(INCL) $< -o $@
 	cat $*.d >> Dependencies
 	rm -f $*.d
