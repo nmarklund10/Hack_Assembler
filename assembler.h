@@ -87,7 +87,7 @@ class assembler {
 			size_t a = s.find_first_not_of(" \t\n\r\v\f\b");
 			if (a != string::npos) {
 				s = s.substr(a);
-				size_t b = s.find_last_not_of(" \t\n\r\v\f");
+				size_t b = s.find_last_not_of(" \t\n\r\v\f\b");
 				if (b != string::npos)
 					s.erase(b+1);
 				return s;
@@ -96,38 +96,37 @@ class assembler {
 		}
 		
 		bool invalid_symbol_name (string s) {
-			bool b = false;
 			if (s.find("%") != string::npos)
-				b= true;
+				return true;
 			if (s.find(";") != string::npos)
-				b= true;							
+				return true;
 			if (s.find("@") != string::npos)
-				b= true;
+				return true;
 			if (s.find("#") != string::npos)
-				b= true;
+				return true;
 			if (s.find("^") != string::npos)
-				b= true;
+				return true;
 			if (s.find("*") != string::npos)
-				b= true;
+				return true;
 			if (s.find("(") != string::npos)
-				b= true;
+				return true;
 			if (s.find(")") != string::npos)
-				b= true;
+				return true;
 			if (s.find("`") != string::npos)
-				b= true;
+				return true;
 			if (s.find("~") != string::npos)
-				b= true;
+				return true;
 			if (s.find("/") != string::npos)
-				b= true;
+				return true;
 			if (s.find("\\") != string::npos)
-				b= true;
+				return true;
 			if (s.find("\"") != string::npos)
-				b= true;
+				return true;
 			if (s.find("\'") != string::npos)
-				b= true;
+				return true;
 			if (s.find("\?") != string::npos)
-				b= true;
-			return b;
+				return true;
+			return false;
 		}
 		///* Helper Functions for Second Pass *///
 		
